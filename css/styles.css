@@ -315,20 +315,12 @@ nav h1 a {
   }
 
   #restaurant-img {
-    border-top-left-radius: 40px;
-    border-bottom-right-radius: 40px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
   }
 
   #restaurant-hours {
     width: 100%;
-  }
-
-  #reviews-list {
-    width: 100%;
-  }
-
-  #reviews-list li p {
-
   }
 
   #reviews-container {
@@ -336,9 +328,53 @@ nav h1 a {
   }
 
   #reviews-list li {
-    border-top-left-radius: 40px;
-    border-bottom-right-radius: 40px;
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
   }
+
+  #reviews-list li {
+    padding: 0;
+  }
+
+  #reviews-list li p {
+    padding: 0;
+    font-size: 1.5em;
+    margin: 0;
+  }
+
+  #reviews-list li > p:last-child {
+    margin: 10px 0;
+    padding: 20px;
+  }
+
+  #reviews-list li div {
+    display: flex;
+    padding: 20px 20px 10px 20px;
+    background-color: #252831;
+    margin-bottom: 20px;
+  }
+
+  #reviews-list li div + p {
+    display: inline;
+    color: white;
+    text-transform: uppercase;
+    background-color: orange;
+    padding: 5px 10px;
+    margin-left: 20px;
+  }
+
+  #reviews-list li div p {
+    color: #ddd;
+  }
+
+  #reviews-list li div p:first-child {
+    font-size: 1.7em;
+  }
+
+  #reviews-list li div p:nth-child(2) {
+    margin-left: auto;
+  }
+
 
   .inside #footer {
     width: 100%;
