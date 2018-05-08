@@ -279,7 +279,6 @@ nav h1 a {
 
 @media screen and (max-width: 720px) {
   nav h1 a {
-    height: 100px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
     color: #d9d9d9;
@@ -315,6 +314,11 @@ nav h1 a {
     padding-top: 10px;
   }
 
+  #restaurant-img {
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+  }
+
   #restaurant-hours {
     width: 100%;
   }
@@ -325,6 +329,15 @@ nav h1 a {
 
   #reviews-list li p {
 
+  }
+
+  #reviews-container {
+    width: 100%;
+  }
+
+  #reviews-list li {
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 40px;
   }
 
   .inside #footer {
