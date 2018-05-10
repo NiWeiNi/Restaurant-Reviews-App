@@ -47,6 +47,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   padding: 25px;
   text-align: center;
   text-transform: uppercase;
+  box-sizing: border-box;
 }
 /* ====================== Navigation ====================== */
 nav {
@@ -241,6 +242,7 @@ nav h1 a {
   border-top: 1px solid #fff;
   padding: 140px 40px 30px;
   width: 50%;
+  box-sizing: border-box;
 }
 #reviews-container {
   padding: 30px 40px 80px;
@@ -296,7 +298,7 @@ nav h1 a {
   }
 
   #breadcrumb li {
-    font-size: 1em;
+    font-size: 1.2em;
   }
 
   #maincontent {
@@ -311,7 +313,7 @@ nav h1 a {
 
   #restaurant-container {
     width: 100%;
-    padding-top: 10px;
+    padding: 10px 0 0 40px;
   }
 
   #restaurant-img {
@@ -319,12 +321,27 @@ nav h1 a {
     border-bottom-right-radius: 40px;
   }
 
+  #restaurant-cuisine {
+    font-size: 1.6em;
+    font-weight: bold;
+  }
+
+  #restaurant-address {
+    font-size: 1.4em;
+    font-weight: bold;
+  }
+
   #restaurant-hours {
     width: 100%;
   }
 
+  #restaurant-hours tr td {
+    font-size: 1.4em;
+  }
+
   #reviews-container {
     width: 100%;
+    padding: 10px 0 60px 40px;
   }
 
   #reviews-list li {
