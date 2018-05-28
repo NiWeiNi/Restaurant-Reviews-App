@@ -22,6 +22,16 @@ const urlToCache = [
     './restaurant.html'
 ];
 
+// Install service worker
+self.addEventListener('install ', function(e) {
+    e.waitUntil(
+        caches.open('restaurant-cache').then(function(cache) {
+            return cache.addAll(urlToCache);
+        })
+    );
+});
+
+
 // Fetch files from cache
 self.addEventListener('fetch', function(e) {
     e.respondWith(
