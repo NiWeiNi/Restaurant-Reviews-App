@@ -1,5 +1,8 @@
+// Store cache name
+let staticCacheName = 'restaurant-cache-1';
+
 // Array of elements to cache 
-const urlToCache = [
+let urlToCache = [
     './',
     './css/styles.css',
     './data/restaurants.json',
@@ -25,18 +28,45 @@ const urlToCache = [
 // Install service worker
 self.addEventListener('install ', function(e) {
     e.waitUntil(
-        caches.open('restaurant-cache').then(function(cache) {
+        caches.open(staticCacheName).then(function(cache) {
             return cache.addAll(urlToCache);
         })
     );
 });
 
-
-// Fetch files from cache
-self.addEventListener('fetch', function(e) {
-    e.respondWith(
-        caches.match(e.request).then(function(response) {
-            return response || fetch(e.request);
+self.addEventListener('activate', function (e) {
+    e.waitUntil(
+        caches.keys().then(function (cacheNames) {
+            return Promise.all(
+                cacheNames.filter(function (cacheName) {
+                    return cacheName.startsWith('restaurant-') &&
+                        cacheName != staticCacheName;
+                }).map(function (cacheName) {
+                    return caches.delete(cacheName);
+                })
+            );
         })
     );
 });
+
+// Fetch files from cache
+// self.addEventListener('fetch', function(e) {
+//     e.respondWith(
+//         caches.match(e.request).then(function(response) {
+//             return response || fetch(e.request);
+//         })
+//     );
+// });
+
+self.addEventListener('fetch', function(e) {
+    e.respondWith(
+      caches.open(staticCacheName).then(function(cache) {
+        return cache.match(e.request).then(function (response) {
+          return response || fetch(e.request).then(function(response) {
+            cache.put(e.request, response.clone());
+            return response;
+          });
+        });
+      })
+    );
+  });
