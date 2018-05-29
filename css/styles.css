@@ -52,7 +52,6 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 /* ====================== Navigation ====================== */
 header:first-child {
   width: 100%;
-  height: 80px;
   background-color: #252831;
   text-align:center;
 }
@@ -73,7 +72,6 @@ header:first-child h1 a {
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    width: calc(50% - 80px);
 }
 
 /* Display list items side by side */
@@ -337,10 +335,6 @@ header:first-child h1 a {
 
 
 @media screen and (max-width: 360px) {
-
-  header:first-child {
-    height: 120px;
-  }
 
   header:first-child h1 a {
     font-family: Arial, Helvetica, sans-serif;
