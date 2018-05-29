@@ -165,3 +165,12 @@ getParameterByName = (name, url) => {
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+
+/**
+ * Add service worker
+ */
+if(navigator.serviceWorker) {
+  navigator.serviceWorker.register('./sw.js')
+      .then(registered => console.log('Service worker active'))
+      .catch(error => console.error(error))
+}
