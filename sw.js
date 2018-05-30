@@ -1,3 +1,6 @@
+// Store cache to mantain in variable
+let staticCacheName = 'restaurant-cache-v1';
+
 // Array of elements to cache 
 let urlToCache = [
     './',
@@ -25,16 +28,32 @@ let urlToCache = [
 // Install service worker
 self.addEventListener('install ', function(e) {
     e.waitUntil(
-        caches.open('restaurant-cache-1').then(function(cache) {
+        caches.open(staticCacheName).then(function(cache) {
             return cache.addAll(urlToCache);
         })
     );
 });
 
+// Remove previous caches
+self.addEventListener('activate', function(e) {
+  e.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.filter(function(cacheName) {
+          return cacheName.startsWith('restaurant-') &&
+                 cacheName != staticCacheName;
+        }).map(function(cacheName) {
+          return caches.delete(cacheName);
+        })
+      );
+    })
+  );
+});
+
 // Fetch cache and add new elements to cache
 self.addEventListener('fetch', function(e) {
     e.respondWith(
-      caches.open('restaurant-cache-1').then(function(cache) {
+      caches.open(staticCacheName).then(function(cache) {
         return cache.match(e.request).then(function (response) {
           return response || fetch(e.request).then(function(response) {
             cache.put(e.request, response.clone());
