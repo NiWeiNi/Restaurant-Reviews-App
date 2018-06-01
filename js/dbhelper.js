@@ -11,7 +11,7 @@ class DBHelper {
     const port = 8000 // Change this to your server port
     // return `http://localhost:${port}/data/restaurants.json`;
     // Uncoment previous two lines to make the web work on a local server
-    return 'https://github.com/NiWeiNi/Restaurant-Reviews-App/blob/master/data/restaurants.json';
+    return 'https://niweini.github.io/Restaurant-Reviews-App/data/restaurants.json';
   }
 
   /**
